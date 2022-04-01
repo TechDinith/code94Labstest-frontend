@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import "../../../styles/commen.fonts.scss";
 
 const NewProductBtnAtom = (props: any) => {
   return (
@@ -7,8 +8,9 @@ const NewProductBtnAtom = (props: any) => {
         style={{
           borderRadius: 5,
           backgroundColor: "#001eb9",
-          width: 249,
+          width: 200,
           height: 39,
+          fontFamily: "Satoshi-Medium",
         }}
         type="primary"
       >

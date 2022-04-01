@@ -2,9 +2,10 @@
 @import "../../../styles/common.colors.scss";
 
 h1 {
-  color: #162427;
+  color: $black;
   font-family: "Satoshi-Medium";
   font-weight: 900;
   font-size: 36px;
   color: $black;
+  font-stretch: extra-expanded;
 }

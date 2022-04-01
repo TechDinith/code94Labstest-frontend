@@ -1,0 +1,9 @@
+@import "../../../styles/common.colors.scss";
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  position: relative;
+  background-color: $grayWhite;
+  border: 0px;
+  border-radius: 40px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}

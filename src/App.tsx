@@ -6,14 +6,18 @@ import HeadingAtom from "./components/atoms/headingAtom/heading.atom";
 import SearchBoxAtom from "./components/atoms/searchboxAtom/searchbox.atom";
 import NewProductBtnAtom from "./components/atoms/newProductBtnAtom/newproduct.btn.atom";
 import FavoritBtnAtom from "./components/atoms/favoritBtnAtom/favorit.btn.atom";
-import ContentAtom from "./components/atoms/contentAtom/content.atom";
+import ContentAtom from "./components/atoms/contentTableAtom/contentTable.atom";
 import AdminDropDownAvatarMol from "./components/molecules/adminDropdownAvatarMol/adminDropdownAvatar.mol";
 import NewProductBtnFavoritBtnMol from "./components/molecules/newProductBtnFavoritBtnMol/newProductBtnFavoritBtn.mol";
+import UpperPageOrg from "./components/organisms/upperPageOrg/upperPage.org";
+import ProductsPage from "./components/Pages/productsPage/products.page";
+import SearchResultPage from "./components/Pages/searchResultPage/searchResult.page";
 
 function App() {
   return (
     <div className="App">
-      <NewProductBtnFavoritBtnMol />
+      <ProductsPage />
+      <SearchResultPage />
     </div>
   );
 }
