@@ -18,7 +18,7 @@ const SearchBoxAtom = (props: any) => {
               Search
             </Button>
           }
-          style={{ borderRadius: 25 }}
+          style={{ borderRadius: 25, width: 657 }}
         />
       </Space>
     </>
