@@ -7,8 +7,8 @@ const FavoritBtnAtom = (props: any) => {
       <Button
         style={{
           borderRadius: 5,
-
           height: 39,
+          borderColor: "#001eb9",
         }}
       >
         <img src={starred} alt="logo" />
