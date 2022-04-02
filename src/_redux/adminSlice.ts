@@ -5,6 +5,7 @@ export const adminSlice = createSlice({
   initialState: {
     key: "",
     result: "",
+    data: [],
   },
   reducers: {
     deleteProductRed: (state: any, action: any) => {
@@ -13,9 +14,13 @@ export const adminSlice = createSlice({
     searchProductRed: (state: any, action: any) => {
       void { ...state, result: (state.result = action.payload) };
     },
+    loadDataRed: (state: any, action: any) => {
+      void { ...state, data: (state.data = action.payload) };
+    },
   },
 });
 
-export const { deleteProductRed, searchProductRed } = adminSlice.actions;
+export const { deleteProductRed, searchProductRed, loadDataRed } =
+  adminSlice.actions;
 
 export default adminSlice.reducer;

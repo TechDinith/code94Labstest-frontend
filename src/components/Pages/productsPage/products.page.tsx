@@ -4,57 +4,27 @@ import pro2 from "../../../assets/product-img-1.png";
 import pro3 from "../../../assets/product-img-2.png";
 import pro4 from "../../../assets/product-img-3.png";
 import pro5 from "../../../assets/product-img-4.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContentTableAtom from "../../atoms/contentTableAtom/contentTable.atom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loadDataRed } from "../../../_redux/adminSlice";
 
 const ProductsPage = () => {
-  const [data, setData] = useState([
-    {
-      key: "1",
-      sku: "#CA34",
-      qty: "1",
-      desc: "just a product",
-      image: pro1,
-      name: "product 1",
-      price: "$24.00",
-    },
-    {
-      key: "2",
-      sku: "#CA34",
-      qty: "1",
-      desc: "just a product",
-      image: pro2,
-      name: "product 2",
-      price: "$24.00",
-    },
-    {
-      key: "3",
-      sku: "#CA35",
-      qty: "1",
-      desc: "just a product",
-      image: pro3,
-      name: "product 3",
-      price: "$24.00",
-    },
-    {
-      key: "4",
-      sku: "#CA56",
-      qty: "1",
-      desc: "just a product",
-      image: pro4,
-      name: "product 4",
-      price: "$24.00",
-    },
-    {
-      key: "5",
-      sku: "#CA57",
-      qty: "1",
-      desc: "just a product",
-      image: pro5,
-      name: "product 5",
-      price: "$24.00",
-    },
-  ]);
+  const dispatch = useDispatch();
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/products")
+      .then(function (response) {
+        setData(response.data);
+        dispatch(loadDataRed(data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div style={{ margin: 40 }}>
