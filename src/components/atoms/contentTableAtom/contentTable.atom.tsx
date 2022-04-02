@@ -1,9 +1,31 @@
-import { Space, Table } from "antd";
+import { Button, Modal, Space, Table } from "antd";
 import starred from "../../../assets/starred.svg";
 import editicon from "../../../assets/edit-icon.svg";
 import deleteicon from "../../../assets/delete-icon.svg";
+import alerticon from "../../../assets/alert.svg";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteProductRed } from "../../../_redux/adminSlice";
 
 const ContentTableAtom = (props: any) => {
+  const dispatch = useDispatch();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [deleteKey, setDeleteKey] = useState(0);
+
+  const showModal = (key: number) => {
+    setIsModalVisible(true);
+    setDeleteKey(key);
+  };
+
+  const handleDelete = () => {
+    setIsModalVisible(false);
+    dispatch(deleteProductRed(deleteKey));
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const columns = [
     {
       title: "SKU",
@@ -36,9 +58,10 @@ const ContentTableAtom = (props: any) => {
       key: "action",
       render: (text: string, record: any) => (
         <Space size="middle">
-          <a>
+          <a onClick={() => showModal(record.key)}>
             <img src={deleteicon} />
           </a>
+
           <a>
             <img src={editicon} />
           </a>
@@ -57,6 +80,37 @@ const ContentTableAtom = (props: any) => {
         columns={columns}
         dataSource={props.data}
       />
+      <Modal
+        visible={isModalVisible}
+        centered
+        onCancel={handleCancel}
+        footer={false}
+        bodyStyle={{
+          fontFamily: "Satoshi-Medium",
+          textAlign: "center",
+          height: 254,
+        }}
+      >
+        <img src={alerticon} />
+        <h2>ARE YOU SURE?</h2>
+        <p>You will not be able to undo this action if you proceed!</p>
+        <Button
+          key="back"
+          onClick={handleCancel}
+          style={{ marginRight: 20, borderColor: "#001eb9" }}
+        >
+          Cancel
+        </Button>
+
+        <Button
+          key="delete"
+          type="primary"
+          onClick={handleDelete}
+          style={{ backgroundColor: "#001eb9" }}
+        >
+          Delete
+        </Button>
+      </Modal>
     </>
   );
 };

@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <ProductsPage />
-      <SearchResultPage />
+      {/* <SearchResultPage /> */}
     </div>
   );
 }
