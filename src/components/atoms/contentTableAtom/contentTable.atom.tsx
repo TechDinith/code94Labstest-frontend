@@ -1,20 +1,24 @@
 import { Button, Modal, Space, Table } from "antd";
-import starred from "../../../assets/starred.svg";
 import editicon from "../../../assets/edit-icon.svg";
+import starred from "../../../assets/starred.svg";
+import star from "../../../assets/star.svg";
 import deleteicon from "../../../assets/delete-icon.svg";
 import alerticon from "../../../assets/alert.svg";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteProductRed } from "../../../_redux/adminSlice";
+import { deleteProductRed, favoriteRed } from "../../../_redux/adminSlice";
 
 const ContentTableAtom = (props: any) => {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [deleteKey, setDeleteKey] = useState(0);
+  const [disabled, setDisabled] = useState(true);
+  const [toggle, setToggle] = useState(star);
 
   const showModal = (key: number) => {
     setIsModalVisible(true);
     setDeleteKey(key);
+    console.log("deleteKey", deleteKey);
   };
 
   const handleDelete = () => {
@@ -24,6 +28,17 @@ const ContentTableAtom = (props: any) => {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  const handleFavorite = (key: string) => {
+    setDisabled(!disabled);
+
+    if (disabled) {
+      setToggle(starred);
+      dispatch(favoriteRed({ isFav: disabled, key: key }));
+    } else {
+      setToggle(star);
+    }
   };
 
   const columns = [
@@ -58,15 +73,15 @@ const ContentTableAtom = (props: any) => {
       key: "action",
       render: (text: string, record: any) => (
         <Space size="middle">
-          <a onClick={() => showModal(record.key)}>
+          <a onClick={() => showModal(record.id)}>
             <img src={deleteicon} />
           </a>
 
           <a>
             <img src={editicon} />
           </a>
-          <a>
-            <img src={starred} />
+          <a onClick={() => handleFavorite(record.id)}>
+            <img src={toggle} />
           </a>
         </Space>
       ),

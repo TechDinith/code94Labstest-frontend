@@ -6,6 +6,7 @@ export const adminSlice = createSlice({
     key: "",
     result: "",
     data: [],
+    isFav: false,
   },
   reducers: {
     deleteProductRed: (state: any, action: any) => {
@@ -17,10 +18,17 @@ export const adminSlice = createSlice({
     loadDataRed: (state: any, action: any) => {
       void { ...state, data: (state.data = action.payload) };
     },
+    favoriteRed: (state: any, action: any) => {
+      void {
+        ...state,
+        key: (state.key = action.payload),
+        isFav: (state.isFav = action.payload),
+      };
+    },
   },
 });
 
-export const { deleteProductRed, searchProductRed, loadDataRed } =
+export const { deleteProductRed, searchProductRed, loadDataRed, favoriteRed } =
   adminSlice.actions;
 
 export default adminSlice.reducer;

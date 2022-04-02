@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./searchbox.style.scss";
 import { useDispatch } from "react-redux";
 import { searchProductRed } from "../../../_redux/adminSlice";
+import { Link } from "react-router-dom";
 
 const SearchBoxAtom = (props: any) => {
   const dispatchVar = useDispatch();
@@ -65,7 +66,7 @@ const SearchBoxAtom = (props: any) => {
             shape="round"
             onClick={dispatchHandler}
           >
-            Search
+            <Link to="searchresults">Search</Link>
           </Button>
         </div>
       </Space>

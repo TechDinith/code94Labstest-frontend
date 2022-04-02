@@ -8,14 +8,14 @@ const ContentListAtom = (props: any) => {
       {props.data.map((product: any) => (
         <Row>
           <Col span={24}>
-            <div className="product-preview" key={product.key}>
+            <div className="product-preview" key={product.id}>
               <Space direction="horizontal">
                 <div>
                   <h3>{product.sku}</h3>
                   <h2>{product.name}</h2>
-                  <p> {product.desc}</p>
+                  <p> {product.description}</p>
                 </div>
-                <div style={{ paddingLeft: 850 }} key={product.key}>
+                <div style={{ paddingLeft: 1100 }} key={product.key}>
                   <a>
                     <img src={arrow} />
                   </a>

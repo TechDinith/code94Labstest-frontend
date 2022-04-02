@@ -1,9 +1,4 @@
 import UpperPageOrg from "../../organisms/upperPageOrg/upperPage.org";
-import pro1 from "../../../assets/product-img.png";
-import pro2 from "../../../assets/product-img-1.png";
-import pro3 from "../../../assets/product-img-2.png";
-import pro4 from "../../../assets/product-img-3.png";
-import pro5 from "../../../assets/product-img-4.png";
 import { useEffect, useState } from "react";
 import ContentTableAtom from "../../atoms/contentTableAtom/contentTable.atom";
 import axios from "axios";
@@ -24,7 +19,7 @@ const ProductsPage = () => {
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [data]);
 
   return (
     <div style={{ margin: 40 }}>
