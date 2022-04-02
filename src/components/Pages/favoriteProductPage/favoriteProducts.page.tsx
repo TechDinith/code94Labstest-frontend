@@ -1,13 +1,13 @@
 import UpperPageOrg from "../../organisms/upperPageOrg/upperPage.org";
-import { useEffect, useState } from "react";
 import ContentTableAtom from "../../atoms/contentTableAtom/contentTable.atom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { loadDataRed } from "../../../_redux/adminSlice";
 
-const ProductsPage = () => {
+const FavoritProductsPage = () => {
   const dispatch = useDispatch();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,14 +21,16 @@ const ProductsPage = () => {
       });
   }, [data]);
 
+  const favData = data.filter((product: any) => product.fav === true);
+
   return (
     <div style={{ margin: 40 }}>
-      <UpperPageOrg data={data} headingText="PRODUCTS" />
+      <UpperPageOrg data={data} headingText="FAVOURITE PRODUCTS" />
       <div style={{ margin: 30 }}>
-        <ContentTableAtom data={data} />
+        <ContentTableAtom data={favData} />
       </div>
     </div>
   );
 };
 
-export default ProductsPage;
+export default FavoritProductsPage;

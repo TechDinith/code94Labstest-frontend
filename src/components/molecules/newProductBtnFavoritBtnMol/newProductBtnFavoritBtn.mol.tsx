@@ -5,7 +5,8 @@ import NewProductBtnAtom from "../../atoms/newProductBtnAtom/newproduct.btn.atom
 const NewProductBtnFavoritBtnMol = (props: any) => {
   return (
     <Space direction="horizontal">
-      <NewProductBtnAtom /> <FavoritBtnAtom />
+      <NewProductBtnAtom />
+      <FavoritBtnAtom />
     </Space>
   );
 };

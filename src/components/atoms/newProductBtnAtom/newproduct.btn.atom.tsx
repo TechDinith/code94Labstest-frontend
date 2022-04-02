@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import "../../../styles/commen.fonts.scss";
-
+import { Link } from "react-router-dom";
 const NewProductBtnAtom = (props: any) => {
   return (
     <>
@@ -14,7 +14,7 @@ const NewProductBtnAtom = (props: any) => {
         }}
         type="primary"
       >
-        New Product
+        <Link to="newproducts">New Product</Link>
       </Button>
     </>
   );

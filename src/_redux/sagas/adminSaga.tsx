@@ -9,7 +9,10 @@ const deleteProduct = () => {
 
 const favProduct = () => {
   const id = store.getState().adminSlice.key;
-  axios.patch(`http://localhost:4000/products/${id}`).then((res) => res.data);
+  const fav = store.getState().adminSlice.isFav;
+  axios
+    .patch(`http://localhost:4000/products/${id}`, { fav: fav })
+    .then((res) => res.data);
 };
 
 function* deleteWorker(): any {

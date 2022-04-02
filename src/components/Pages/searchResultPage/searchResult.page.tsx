@@ -11,7 +11,7 @@ const SearchResultPage = () => {
 
   return (
     <div style={{ margin: 40 }}>
-      <UpperPageOrg data={data} />
+      <UpperPageOrg data={data} headingText="PRODUCTS" />
       <br />
       <h2 style={{ color: "#969191" }}>
         {filtered.length} results found for '{result}'

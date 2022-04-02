@@ -5,7 +5,7 @@ export const adminSlice = createSlice({
   initialState: {
     key: "",
     result: "",
-    data: [],
+    data: [""],
     isFav: false,
   },
   reducers: {

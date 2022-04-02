@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import starred from "../../../assets/starred.svg";
-
+import { Link } from "react-router-dom";
 const FavoritBtnAtom = (props: any) => {
   return (
     <>
@@ -11,7 +11,9 @@ const FavoritBtnAtom = (props: any) => {
           borderColor: "#001eb9",
         }}
       >
-        <img src={starred} alt="logo" />
+        <Link to="favorites">
+          <img src={starred} alt="logo" />
+        </Link>
       </Button>
     </>
   );

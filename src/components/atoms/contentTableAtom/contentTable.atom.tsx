@@ -14,7 +14,7 @@ const ContentTableAtom = (props: any) => {
   const [deleteKey, setDeleteKey] = useState(0);
   const [disabled, setDisabled] = useState(true);
   const [toggle, setToggle] = useState(star);
-
+  const [favKey, setFevKey] = useState("");
   const showModal = (key: number) => {
     setIsModalVisible(true);
     setDeleteKey(key);
@@ -32,7 +32,7 @@ const ContentTableAtom = (props: any) => {
 
   const handleFavorite = (key: string) => {
     setDisabled(!disabled);
-
+    setFevKey(key);
     if (disabled) {
       setToggle(starred);
       dispatch(favoriteRed({ isFav: disabled, key: key }));
@@ -81,7 +81,7 @@ const ContentTableAtom = (props: any) => {
             <img src={editicon} />
           </a>
           <a onClick={() => handleFavorite(record.id)}>
-            <img src={toggle} />
+            <img src={record.id === favKey ? toggle : star} />
           </a>
         </Space>
       ),

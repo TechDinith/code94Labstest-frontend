@@ -1,5 +1,4 @@
 import { Col, Row } from "antd";
-import { useState } from "react";
 import HeadingAtom from "../../atoms/headingAtom/heading.atom";
 import SearchBoxAtom from "../../atoms/searchboxAtom/searchbox.atom";
 import AdminDropDownAvatarMol from "../../molecules/adminDropdownAvatarMol/adminDropdownAvatar.mol";
@@ -15,7 +14,7 @@ const UpperPageOrg = (props: any) => {
       </Row>
       <Row>
         <Col span={24}>
-          <HeadingAtom headingText="PRODUCTS" />
+          <HeadingAtom headingText={props.headingText} />
         </Col>
       </Row>
       <Row>
